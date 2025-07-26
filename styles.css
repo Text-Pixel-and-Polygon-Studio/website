@@ -1,0 +1,82 @@
+/* Custom styles to apply the pixel font and retro theme */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    /* CRT scanline effect */
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.pixel-border {
+    border: 4px solid #e0e0e0;
+    box-shadow: 
+        inset -4px -4px 0px 0px #7b7b7b,
+        inset 4px 4px 0px 0px #ffffff;
+    background-color: #c0c0c0; /* Classic grey UI background */
+    color: #212121;
+}
+
+.pixel-border-inverse {
+     border: 4px solid #e0e0e0;
+     box-shadow: 
+        4px 4px 0px 0px #7b7b7b,
+        -4px -4px 0px 0px #ffffff;
+}
+
+.pixel-button {
+    border: 4px solid #212121;
+    box-shadow: 
+        inset -4px -4px 0px 0px #7b7b7b,
+        inset 4px 4px 0px 0px #ffffff;
+    background-color: #c0c0c0;
+    color: #212121;
+    transition: all 0.1s ease-in-out;
+}
+
+.pixel-button:active {
+    box-shadow: inset 4px 4px 0px 0px #7b7b7b;
+    transform: translate(2px, 2px);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00f0ff; }
+}
+.typing-effect {
+    overflow: hidden;
+    border-right: .15em solid #00f0ff;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+}
+
+h1, h2, h3 {
+    text-shadow: 2px 2px #ff00ff, 4px 4px #00f0ff;
+}
+
+.pixel-border h2, .pixel-border h3 {
+    color: #212121;
+    text-shadow: 2px 2px #7b7b7b;
+}
